@@ -1,0 +1,9 @@
+{
+    "alice": "Alice Zuberg",
+    "eugeo": "Eugeo",
+    "kirito": "Kazuto Kirigaya",
+    "Nested": {
+        "Key": "Nested Key",
+        "value": "Nested Value"
+    }
+}
