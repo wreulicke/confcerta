@@ -45,10 +45,16 @@ func (l *loader) parseStruct(ctx context.Context, path string, ref reflect.Value
 		value := ref.Field(i)
 		typ := value.Type()
 
-		name := concatPath(path, field.Name)
 		tag := field.Tag.Get("config")
-		if tag != "" && tag != "-" {
+		if tag == "-" {
+			continue
+		}
+
+		var name string
+		if tag != "" {
 			name = concatPath(path, tag)
+		} else {
+			name = concatPath(path, field.Name)
 		}
 
 		switch typ.Kind() {
