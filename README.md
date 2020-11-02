@@ -17,3 +17,7 @@ Confcerta is a library that load configuration from multiple backends, inspired 
 ```sh
 go get -u github.com/wreulicke/confcerta
 ```
+
+## TODO
+
+* [ ] Required field
