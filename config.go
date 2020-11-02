@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"reflect"
+	"unicode"
 
 	"github.com/mitchellh/mapstructure"
 	"github.com/wreulicke/confcerta/backend"
@@ -44,6 +45,11 @@ func (l *loader) parseStruct(ctx context.Context, path string, ref reflect.Value
 		field := t.Field(i)
 		value := ref.Field(i)
 		typ := value.Type()
+
+		if !unicode.IsUpper(rune(field.Name[0])) {
+			// ignore unexported field
+			continue
+		}
 
 		tag := field.Tag.Get("config")
 		if tag == "-" {
