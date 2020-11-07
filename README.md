@@ -8,6 +8,7 @@ Confcerta is a library that load configuration from multiple backends, inspired 
 - JSON files
 - Yaml files
 - Toml files
+- HCL files
 - Command line flags
 - Amazon Systems Manager Parameter Store
 * Amazon S3
