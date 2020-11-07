@@ -4,10 +4,12 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
+	"io/ioutil"
 	"path"
 	"path/filepath"
 
 	"github.com/BurntSushi/toml"
+	"github.com/hashicorp/hcl"
 	"gopkg.in/yaml.v3"
 )
 
@@ -33,6 +35,14 @@ func NewDecoderFromExtension(ext string, reader io.Reader) (Decoder, error) {
 		return func(to interface{}) error {
 			_, err := toml.DecodeReader(reader, to)
 			return err
+		}, nil
+	case ".hcl":
+		return func(to interface{}) error {
+			bs, err := ioutil.ReadAll(reader)
+			if err != nil {
+				return err
+			}
+			return hcl.Unmarshal(bs, to)
 		}, nil
 	}
 	return nil, errors.New("Unsupported format")
