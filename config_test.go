@@ -2,6 +2,7 @@ package confcerta
 
 import (
 	"context"
+	"fmt"
 	"os"
 	"testing"
 
@@ -20,7 +21,7 @@ type testConfig struct {
 	}
 }
 
-func TestLoad(t *testing.T) {
+func TestLoad_JSON(t *testing.T) {
 	l := New(file.New("testdata/simple.json"))
 	c := testConfig{}
 	err := l.Unmarshal(context.Background(), &c)
@@ -101,5 +102,28 @@ func TestLoad_FlagsBackned(t *testing.T) {
 	}
 	if c.Nested.Value != "Nested Value" {
 		t.Error("c.Nested.Value is not expected condition")
+	}
+}
+
+func TestLoad_HCL(t *testing.T) {
+	l := New(file.New("testdata/simple.hcl"))
+	c := struct {
+		Character []struct {
+			Name string `config:"name"`
+		} `config:"character"`
+	}{}
+	err := l.Unmarshal(context.Background(), &c)
+	if err != nil {
+		t.Error(err)
+	}
+	fmt.Println(c)
+	if c.Character[0].Name != "Alice Zuberg" {
+		t.Error("c.A is not alice")
+	}
+	if c.Character[1].Name != "Eugeo" {
+		t.Error("c.E is not eugeo")
+	}
+	if c.Character[2].Name != "Kazuto Kirigaya" {
+		t.Error("c.K is not kirito")
 	}
 }
