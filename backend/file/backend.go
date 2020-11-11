@@ -17,7 +17,7 @@ type Backend struct {
 func expandPath(path string) string {
 	home, err := os.UserHomeDir()
 	if err != nil {
-		return path
+		return os.ExpandEnv(path)
 	}
 	return os.ExpandEnv(strings.Replace(path, "~", home, 1))
 }
