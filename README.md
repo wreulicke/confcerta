@@ -44,7 +44,3 @@ func main() {
 ```sh
 go get -u github.com/wreulicke/confcerta
 ```
-
-## TODO
-
-* [ ] Required field
