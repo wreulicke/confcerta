@@ -31,13 +31,16 @@ func main() {
 ## Supported backends
 
 - Environment variables
-- JSON files
-- Yaml files
-- Toml files
-- HCL files
+- Several format of files
+  - JSON files
+  - Yaml files
+  - Toml files
+  - HCL files
 - Command line flags
 - Amazon Systems Manager Parameter Store
 * Amazon S3
+* http.FileSystem
+* io.Reader
 
 ## Install
 
