@@ -4,14 +4,14 @@ Confcerta is a library that load configuration from multiple backends, inspired 
 
 ## Usage
 
-```
+```go
 import (
     "github.com/wreulicke/confcerta"
 )
 
 type Config struct {
 	A      string 
-    // You can specify aliases using tag 
+	// You can specify aliases using tag 
 	B      string `config:"Foo"`
 	C      string `config:"Bar"`
 }
