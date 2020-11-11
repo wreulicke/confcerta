@@ -1,4 +1,6 @@
-## Confcerta
+## Confcerta 
+
+[![PkgGoDev](https://pkg.go.dev/badge/wreulicke/confcerta)](https://pkg.go.dev/wreulicke/confcerta)
 
 Confcerta is a library that load configuration from multiple backends, inspired by [confita](https://github.com/heetch/confita).
 
