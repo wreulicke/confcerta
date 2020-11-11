@@ -1,6 +1,6 @@
 ## Confcerta
 
-Confcerta is a library that load configuration from multiple backends, inspired by [confita](github.com/heetch/confita).
+Confcerta is a library that load configuration from multiple backends, inspired by [confita](https://github.com/heetch/confita).
 
 ## Usage
 
