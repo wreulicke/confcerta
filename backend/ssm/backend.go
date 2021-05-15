@@ -72,11 +72,3 @@ func (b *Backend) Load(ctx context.Context, cfg *backend.Config) (map[string]int
 	}
 	return r, nil
 }
-
-func newBool(b bool) *bool {
-	return &b
-}
-
-func newInt64(i int64) *int64 {
-	return &i
-}
